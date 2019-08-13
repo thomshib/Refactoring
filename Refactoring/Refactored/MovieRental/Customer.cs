@@ -24,8 +24,8 @@ namespace Refactoring.Refactored.MovieRental
 
         public String statement()
         {
-            double totalAmount = 0;
-            int frequentRenterPoints = 0;
+            //double totalAmount = 0;
+            //int frequentRenterPoints = 0;
             var rentals = _rentals.GetEnumerator();
             String result = "Rental Record for " + getName() + "\n";
             while (rentals.MoveNext())
@@ -35,7 +35,7 @@ namespace Refactoring.Refactored.MovieRental
                 //determine amounts for each line
                 //thisAmount = AmountFor(each);
 
-                thisAmount = each.GetCharge();
+                //thisAmount = each.GetCharge();
 
                 //// add frequent renter points               
                 //frequentRenterPoints++;
@@ -45,15 +45,18 @@ namespace Refactoring.Refactored.MovieRental
                 //&&
                 //each.getDaysRented() > 1) frequentRenterPoints++;
 
-                frequentRenterPoints += each.GetFrequentRenterPoints();
+                //frequentRenterPoints += each.GetFrequentRenterPoints();
 
                 //show figures for this rental
-                result += "\t" + each.getMovie().getTitle() + "\t" +   thisAmount.ToString() + "\n";    
-                totalAmount += thisAmount;
+                result += "\t" + each.getMovie().getTitle() + "\t" + each.GetCharge().ToString() + "\n";    
+                //totalAmount += thisAmount;
             }
             //add footer lines
-            result += "Amount owed is " +totalAmount.ToString() +  "\n"; 
-            result += "You earned " + frequentRenterPoints.ToString()   + " frequent renter points";
+            //result += "Amount owed is " +totalAmount.ToString() +  "\n";
+            result += "Amount owed is " + GetTotalCharge().ToString() + "\n";
+
+            //result += "You earned " + frequentRenterPoints.ToString()   + " frequent renter points";
+            result += "You earned " + GetFrequentRenterPoints().ToString() + " frequent renter points";
             return result;
         }
 
@@ -87,6 +90,38 @@ namespace Refactoring.Refactored.MovieRental
             */
 
             return input.GetCharge();
+        }
+
+        private double GetTotalCharge()
+        {
+            var rentals = _rentals.GetEnumerator();
+            double result = 0;
+            while (rentals.MoveNext())
+            {
+               
+                Rental each = rentals.Current;
+                result += each.GetCharge();
+
+               
+            }
+
+            return result;
+        }
+
+        private int GetFrequentRenterPoints()
+        {
+            var rentals = _rentals.GetEnumerator();
+            int result = 0;
+            while (rentals.MoveNext())
+            {
+
+                Rental each = rentals.Current;
+                result += each.GetFrequentRenterPoints();
+
+
+            }
+
+            return result;
         }
 
 

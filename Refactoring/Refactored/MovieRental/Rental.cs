@@ -27,7 +27,7 @@ namespace Refactoring.Refactored.MovieRental
         {
             double result = 0;
 
-          
+
             switch (getMovie().getPriceCode())
             {
                 case Movie.REGULAR:
@@ -60,5 +60,6 @@ namespace Refactoring.Refactored.MovieRental
             {
                 return 1;
             }
+        }
     }
 }
