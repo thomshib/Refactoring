@@ -63,7 +63,7 @@ namespace Refactoring.UnRefactored.MovieRental
             }
             //add footer lines
             result += "Amount owed is " +totalAmount.ToString() +  "\n";
-            result += "You earned " + frequentRenterPoints.ToString()   +        " frequent renter points";
+            result += "You earned " + frequentRenterPoints.ToString()   + " frequent renter points";
             return result;
         }
 
