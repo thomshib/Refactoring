@@ -58,7 +58,7 @@ namespace Refactoring.UnRefactored.MovieRental
                 &&
                 each.getDaysRented() > 1) frequentRenterPoints++;
                 //show figures for this rental
-                result += "\t" + each.getMovie().getTitle() + "\t" +   thisAmount.ToString() + "\n";
+                result += "\t" + each.getMovie().getTitle() + "\t" +   thisAmount.ToString() + "\n"; 
                 totalAmount += thisAmount;
             }
             //add footer lines
