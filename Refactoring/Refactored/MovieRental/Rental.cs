@@ -25,6 +25,7 @@ namespace Refactoring.Refactored.MovieRental
 
         public double GetCharge()
         {
+            /*
             double result = 0;
 
 
@@ -46,10 +47,13 @@ namespace Refactoring.Refactored.MovieRental
             }
 
             return result;
+            */
+            return _movie.GetCharge(_daysRented);
         }
 
         public int GetFrequentRenterPoints()
         {
+            /*
             if ((getMovie().getPriceCode() == Movie.NEW_RELEASE)
               &&
               getDaysRented() > 1)
@@ -60,6 +64,9 @@ namespace Refactoring.Refactored.MovieRental
             {
                 return 1;
             }
+            */
+
+            return _movie.GetFrequentRenterPoints(_daysRented);
         }
     }
 }
